@@ -1,0 +1,19 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: /root/.minikube/ca.crt
+    server: https://192.168.49.2:8443
+  name: minikube
+contexts:
+- context:
+    cluster: minikube
+    namespace: ops
+    user: dev
+  name: dev-context
+current-context: dev-context
+kind: Config
+users:
+- name: dev
+  user:
+    client-certificate: /root/manifest/devops/dev.crt
+    client-key: /root/manifest/devops/dev.key
